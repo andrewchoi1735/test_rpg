@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4e539a16-5e1c-4b6b-8753-aeb17543ff63" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/test_rpg.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/enemy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/player.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/weapon.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/item_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/weapon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +52,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.enemy.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.player.executor": "Run",
+    "Python.weapon.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -76,11 +83,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743465318681</updated>
-      <workItem from="1743465319553" duration="381000" />
+      <workItem from="1743465319553" duration="11376000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/test_rpg$player.coverage" NAME="player 커버리지 결과" MODIFIED="1743496033196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/test_rpg$main.coverage" NAME="main 커버리지 결과" MODIFIED="1743493263279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/test_rpg$enemy.coverage" NAME="enemy 커버리지 결과" MODIFIED="1743491258123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+    <SUITE FILE_PATH="coverage/test_rpg$weapon.coverage" NAME="weapon 커버리지 결과" MODIFIED="1743494422079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
   </component>
 </project>

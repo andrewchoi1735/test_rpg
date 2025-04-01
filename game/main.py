@@ -7,7 +7,7 @@ from weapon import Sword, Gun
 # 게임 초기화
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
-player = Player(x=100, y=100, weapon=Sword())
+player = Player(x=100, y=100)
 enemies = [Enemy(x=400, y=100, type=EnemyType.ELITE)]
 
 running = True
