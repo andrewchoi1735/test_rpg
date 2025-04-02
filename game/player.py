@@ -4,7 +4,6 @@ from item_system import EquipmentSet, EquipmentType, WeaponCategory
 from weapon import Weapon, Gun
 from enemy import Enemy
 import random
-from weapon import burst_balcan
 
 MAX_LEVEL = 150
 MAX_REBIRTH = 10
@@ -47,7 +46,7 @@ class Player:
 	rebirth: int = 0
 	exp: int = 0
 	stat_points: int = 0
-	stats: Dict[str, int] = field(default_factory=lambda:{name:5 for name in STAT_NAMES})
+	stats: Dict[str, int] = field(default_factory=lambda: {name: 5 for name in STAT_NAMES})
 	equipment: EquipmentSet = field(default_factory=EquipmentSet)
 
 	def move_to(self, target_pos):
@@ -74,11 +73,12 @@ class Player:
 
 	def gain_exp(self, amount: int):
 		self.exp += amount
+		print(f"EXP +{amount:,} → 현재 EXP: {self.exp:,}/{get_required_exp(self.level):,}")
 		while self.exp >= get_required_exp(self.level) and self.level < MAX_LEVEL:
 			self.exp -= get_required_exp(self.level)
 			self.level += 1
 			self.stat_points += 5
-			print(f"레벨 업! 현재 레벨: {self.level}")
+			print(f"레벨 업! → {self.level}레벨 달성, 스탯 포인트 +5 (총 보유: {self.stat_points})")
 
 	def can_rebirth(self):
 		return self.level >= 110 and self.rebirth < MAX_REBIRTH
@@ -100,7 +100,9 @@ class Player:
 			return 25
 		elif 130 <= self.level < 140:
 			return 50
-		elif 140 <= self.level <= 150:
+		elif 140 <= self.level <= 149:
+			return 75
+		elif self.level == 150:
 			return 100
 		return 0
 
@@ -215,39 +217,21 @@ class Player:
 	def __str__(self):
 		return f"플레이어 (레벨 {self.level}, 환생 {self.rebirth})"
 
-# # 공격 관련 테스트
-# # player = Player()
-# # enemy = game.enemy.create_dummy_enemy()
-# #
-# # player.attack([enemy])
-#
-#
-#
-# # 더미용 캐릭터 테스트
-# dummy = Player(
-# 	level=149,
-# 	rebirth=5,
-# 	stats={
-# 		"STR":105,
-# 		"END":105,
-# 		"DEX":505,
-# 		"LUK":505,
-# 		"SPD":5
-# 	},
-# )
-# dummy.equipment = EquipmentSet()
-# dummy.equipment.equip(burst_balcan)
-# dummy.show_stats()
-#
-#
-# print("---- 능력치 결과 ----")
-# print(f"HP: {dummy.get_total_hp()}")
-# print(f"공격력: {dummy.get_base_attack_power():.2f}")
-# print(f"스태미너: {dummy.get_stamina()}")
-# print(f"방어력: {dummy.get_defense():.2f}")
-# print(f"명중률: {dummy.get_accuracy()}%")
-# print(f"치명 확률: {dummy.get_crit_rate()}%")
-# print(f"치명 데미지: {dummy.get_crit_damage()}%")
-# print(f"드랍률 보너스: {dummy.get_drop_rate_bonus()}%")
-# print(f"이동속도: {dummy.get_move_speed()}")
-# print(f"공격속도 보너스: {dummy.get_attack_speed_bonus():.2f}")
+	def get_summary(self) -> Dict[str, any]:
+		return {
+			"level": self.level,
+			"rebirth": self.rebirth,
+			"exp": f"{self.exp:,} / {get_required_exp(self.level):,}",
+			"stats": self.stats.copy(),
+			"stat_points": self.stat_points,
+			"hp": self.get_total_hp(),
+			"attack": round(self.get_base_attack_power(), 2),
+			"defense": round(self.get_defense(), 2),
+			"stamina": self.get_stamina(),
+			"accuracy": self.get_accuracy(),
+			"crit_rate": self.get_crit_rate(),
+			"crit_damage": self.get_crit_damage(),
+			"drop_rate": self.get_drop_rate_bonus(),
+			"move_speed": self.get_move_speed(),
+			"attack_speed": round(self.get_attack_speed_bonus(), 2),
+		}

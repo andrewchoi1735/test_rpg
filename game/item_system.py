@@ -5,8 +5,20 @@ from typing import Dict
 
 class EquipmentType(Enum):
 	WEAPON = "무기"
-	ARMOR = "방어구"
-	ACCESSORY = "악세사리"
+	HELMET = "투구"
+	TOP = "상의"
+	BOTTOM = "하의"
+	COAT = "코트"
+	SHOES = "신발"
+	BRACELET1 = "팔찌1"
+	BRACELET2 = "팔찌2"
+	RING1 = "반지1"
+	RING2 = "반지2"
+	NECKLACE = "목걸이"
+	BELT = "벨트"
+	PET = "펫"
+	COSTUME = "코스튬"
+	VEHICLE = "탈것"
 
 
 class WeaponCategory(Enum):
@@ -18,7 +30,7 @@ class WeaponCategory(Enum):
 class Item:
 	name: str
 	type: EquipmentType
-	stat_bonus: Dict[str, int] = field(default_factory=dict)  # STR, DEX, 등
+	stat_bonus: Dict[str, int] = field(default_factory=dict)
 	crit_rate_bonus: float = 0.0
 	crit_dmg_bonus: float = 0.0
 	drop_rate_bonus: float = 0.0
@@ -29,7 +41,7 @@ class Item:
 	hp_bonus: int = 0
 	stamina_bonus: int = 0
 	evasion_bonus: int = 0
-	weapon_category: WeaponCategory = None  # 무기 타입 구분용 (근거리/원거리)
+	weapon_category: WeaponCategory = None
 
 	def get_stat(self, stat_name: str) -> int:
 		return self.stat_bonus.get(stat_name, 0)
@@ -58,7 +70,7 @@ class EquipmentSet:
 		weapon = self.get_item(EquipmentType.WEAPON)
 		if weapon and weapon.weapon_category == WeaponCategory.RANGED:
 			return "DEX"
-		return "STR"  # 기본은 근거리
+		return "STR"
 
-	def __str__(self):
-		return "\n".join(f"[{etype.name}] {item.name}" for etype, item in self.equipped.items())
+	# def __str__(self):
+	# 	return \"\\n\".join(f\"[{etype.name}] {item.name}\" for etype, item in self.equipped.items())
